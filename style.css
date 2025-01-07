@@ -1,0 +1,329 @@
+/* Ensure box-sizing is applied to all elements */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Set default font family, background, and text color */
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #ff9a9e, #fad0c4, #fbc2eb);
+  background-size: 300% 300%;
+  margin: 0;
+  padding: 0;
+  color: #444;
+  overflow-x: hidden;
+  position: relative;
+  z-index: 2;
+  animation: gradientMove 8s ease infinite;
+}
+
+/* Animate gradient background movement */
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Style the form container */
+form {
+  max-width: 600px;
+  margin: 3em auto;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  padding: 30px;
+  position: relative;
+  backdrop-filter: blur(10px);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  animation: formBounce 1s ease-out infinite alternate;
+  border: 2px solid #fad0c4;
+}
+
+/* Bounce animation for form */
+@keyframes formBounce {
+  0% {
+    transform: translateY(-3px);
+  }
+  50% {
+    transform: translateY(3px);
+  }
+  100% {
+    transform: translateY(-3px);
+  }
+}
+
+form:hover {
+  transform: scale(1.03);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+  border-color: #ff9a9e;
+}
+
+/* Style form labels */
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  color: #555;
+  letter-spacing: 0.5px;
+  animation: labelFadeIn 1s ease;
+}
+
+/* Fade-in animation for labels */
+@keyframes labelFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Style text inputs and text areas */
+input[type="email"],
+textarea,
+#subject {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  font-size: 16px;
+  background: rgba(250, 250, 250, 0.8);
+  color: #333;
+  transition: all 0.3s ease;
+  animation: inputZoom 1.2s ease;
+}
+
+/* Zoom-in animation for inputs */
+@keyframes inputZoom {
+  0% {
+    transform: scale(0.95);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+input[type="email"]:focus,
+textarea:focus,
+#subject:focus {
+  outline: none;
+  border-color: #ff758c;
+  box-shadow: 0 0 8px rgba(255, 117, 140, 0.4);
+  transform: scale(1.02);
+}
+
+/* Style file input */
+input[type="file"] {
+  margin-bottom: 15px;
+  width: 100%;
+  font-size: 14px;
+  color: #666;
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  border-radius: 8px;
+  animation: slideIn 1s ease;
+}
+
+/* Slide-in animation for file input */
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Style form submit button */
+input[type="button"] {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(135deg, #ff758c, #ff7eb3);
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.3s, background 0.3s;
+  animation: buttonGlow 2s infinite;
+}
+
+/* Glowing effect for button */
+@keyframes buttonGlow {
+  0% {
+    box-shadow: 0 0 5px rgba(255, 117, 140, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 15px rgba(255, 117, 140, 0.6);
+  }
+  100% {
+    box-shadow: 0 0 5px rgba(255, 117, 140, 0.4);
+  }
+}
+
+input[type="button"]:hover {
+  background: linear-gradient(135deg, #ff7eb3, #ff758c);
+  transform: scale(1.05);
+}
+
+input[type="button"]:active {
+  transform: scale(0.98);
+}
+
+/* Style valid and invalid email containers */
+#validEmails,
+#invalidEmails {
+  margin-top: 20px;
+  height: 150px;
+  overflow-y: auto;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 8px;
+  padding: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 1s ease;
+}
+
+#validEmails p,
+#invalidEmails p {
+  font-weight: bold;
+  color: #555;
+}
+
+/* Scrollbar styles */
+#validEmails::-webkit-scrollbar,
+#invalidEmails::-webkit-scrollbar {
+  width: 8px;
+}
+
+#validEmails::-webkit-scrollbar-thumb,
+#invalidEmails::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+  border-radius: 10px;
+}
+
+#validEmails::-webkit-scrollbar-track,
+#invalidEmails::-webkit-scrollbar-track {
+  background: rgba(245, 245, 245, 0.8);
+}
+/* General form styling */
+#customForm {
+  max-width: 600px;
+  margin: 2em auto;
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 30px;
+  padding: 30px;
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  position: relative;
+}
+
+/* Decorative waves at the top of the form */
+#customForm::before {
+  content: "";
+  position: absolute;
+  top: -50px;
+  left: -100px;
+  width: 300px;
+  height: 300px;
+  background: linear-gradient(135deg, #ff758c, #fad0c4);
+  border-radius: 50%;
+  z-index: -1;
+  opacity: 0.7;
+}
+
+#customForm::after {
+  content: "";
+  position: absolute;
+  bottom: -50px;
+  right: -100px;
+  width: 300px;
+  height: 300px;
+  background: linear-gradient(135deg, #fbc2eb, #ff9a9e);
+  border-radius: 50%;
+  z-index: -1;
+  opacity: 0.7;
+}
+
+/* Inputs and textarea styling */
+#customForm input[type="email"],
+#customForm textarea,
+#customForm input[type="file"] {
+  width: 100%;
+  padding: 15px;
+  margin-bottom: 15px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  background: rgba(250, 250, 250, 0.9);
+  color: #444;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+#customForm input[type="email"]:focus,
+#customForm textarea:focus,
+#customForm input[type="file"]:focus {
+  outline: none;
+  border-color: #ff758c;
+  box-shadow: 0 0 10px rgba(255, 117, 140, 0.5);
+  transform: scale(1.02);
+}
+
+/* Button styling */
+#customForm input[type="button"] {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 25px;
+  background: linear-gradient(135deg, #ff758c, #ff7eb3);
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#customForm input[type="button"]:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(255, 117, 140, 0.3);
+  background: linear-gradient(135deg, #ff7eb3, #ff758c);
+}
+
+/* Valid/Invalid email container styling */
+#validEmails,
+#invalidEmails {
+  margin-top: 10px;
+  padding: 10px;
+  height: 100px;
+  overflow-y: auto;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 20px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 1s ease;
+}
+
+/* Styling headings */
+#heading {
+  font-size: 2em;
+  font-weight: bold;
+  color: #ff758c;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
